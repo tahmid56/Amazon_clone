@@ -1,3 +1,4 @@
+import 'package:amazon_clone_tutorial/features/admin/screens/posts_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants/global_variables.dart';
@@ -17,7 +18,7 @@ class _AdminScreenState extends State<AdminScreen> {
   double bottomBarBorderWidth = 5;
 
   List<Widget> pages = [
-    const Center(child: Text("Posts Page"),),
+    const PostsScreen(),
     const Center(child: Text("Analytic"),),
     const Center(
       child: Text("Cart page"),
@@ -72,7 +73,7 @@ class _AdminScreenState extends State<AdminScreen> {
         iconSize: 28,
         onTap: onBottomBarItemTap,
         items: [
-          //Home
+          //Posts
           BottomNavigationBarItem(
             icon: Container(
               width: bottomBarWidth,
@@ -90,7 +91,7 @@ class _AdminScreenState extends State<AdminScreen> {
             ),
             label: "",
           ),
-          //Profile
+          //Analytics
           BottomNavigationBarItem(
             icon: Container(
               width: bottomBarWidth,
@@ -104,36 +105,28 @@ class _AdminScreenState extends State<AdminScreen> {
                   ),
                 ),
               ),
-              child: const Icon(Icons.person_outlined),
+              child: const Icon(Icons.analytics_outlined),
             ),
             label: '',
           ),
-          //Cart
+          //Orders
           BottomNavigationBarItem(
-              icon: Container(
-                width: bottomBarWidth,
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                      color: _page == 2
-                          ? GlobalVariables.selectedNavBarColor
-                          : GlobalVariables.backgroundColor,
-                      width: bottomBarBorderWidth,
-                    ),
-                  ),
-                ),
-                child: const badges.Badge(
-                  badgeContent: Text("2"),
-                  badgeStyle: badges.BadgeStyle(
-                    elevation: 0,
-                    badgeColor: Colors.white,
-                  ),
-                  child: Icon(
-                    Icons.shopping_cart_outlined,
+            icon: Container(
+              width: bottomBarWidth,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: _page == 2
+                        ? GlobalVariables.selectedNavBarColor
+                        : GlobalVariables.backgroundColor,
+                    width: bottomBarBorderWidth,
                   ),
                 ),
               ),
-              label: ''),
+              child: const Icon(Icons.all_inbox_outlined),
+            ),
+            label: '',
+          ),
         ],
       ),
     );
